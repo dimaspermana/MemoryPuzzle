@@ -7,20 +7,23 @@ var counter;
 var level;
 initPuzzleItems();
 
-$(".puzzle-item").on("click", function() {
+$(document).on("click", ".puzzle-item", function() {
 	if(started) {
 		$(this).addClass("active");
 		if(activePuzzle == "") {
 			activePuzzle = $(this).data("puzzle");
-		} else if(activePuzzle != "" && activePuzzle == $(this).data("puzzle")) {
+			$(this).addClass("temp_found");
+		} else if((activePuzzle != "") && (activePuzzle == $(this).data("puzzle")) && (!$(this).hasClass("temp_found"))) {
 			$("."+activePuzzle).addClass("found");
 			$(".puzzle-item").removeClass("active");
 			activePuzzle = "";
+			$(".puzzle-item").removeClass("temp_found");
 		} else if(activePuzzle != "" && activePuzzle != $(this).data("puzzle")) {
 			setTimeout(function(){
 				$(".puzzle-item").removeClass("active");
 				activePuzzle = "";
-			},500);
+				$(".puzzle-item").removeClass("temp_found");
+			},300);
 		}
 		if($(".found").length == 12) {
 			if(level == "beginner") {
@@ -54,6 +57,7 @@ $(".start-game").on("click", function() {
 });
 
 $(".new-game").on("click", function() {
+	initPuzzleItems();
 	$(".countdown").html("");
 	$(".level-container").show();
 	$("input[type=radio]").prop("checked", false);

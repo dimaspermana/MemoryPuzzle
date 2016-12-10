@@ -2,6 +2,7 @@ html,
 body {
 	width: 100%;
 	height: 100%;
+	font-family: "pt-sans", "Helvetica", "Arial";
 }
 #wrapper {
 	padding-top: 40px;
@@ -43,22 +44,22 @@ body {
 			cursor: pointer;
 		}
 		&.octopus {
-			background-image: url(octopus.png);
+			background-image: url(../images/octopus.png);
 		}
 		&.dinosaur {
-			background-image: url(dinosaur.png);
+			background-image: url(../images/dinosaur.png);
 		}
 		&.bug {
-			background-image: url(bug.png);
+			background-image: url(../images/bug.png);
 		}
 		&.crab {
-			background-image: url(crab.png);
+			background-image: url(../images/crab.png);
 		}
 		&.sheep {
-			background-image: url(sheep.png);
+			background-image: url(../images/sheep.png);
 		}
 		&.whale {
-			background-image: url(whale.png);
+			background-image: url(../images/whale.png);
 		}
 		&.active, &.found {
 			&:before {
